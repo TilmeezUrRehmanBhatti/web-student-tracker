@@ -1,0 +1,10 @@
+<Context>
+
+    <Resource name="jdbc/web_student_tracker"
+              auth="Container" type="javax.sql.DataSource"
+                  maxActive="20" maxIdle="5" maxWait="10000"
+                  username="ouxptxqkhymyap" password="b597e7d85a71150fb92ecdeeba9195877f2367dfd9ed04c0011db39400eabd4e"
+                  driverClassName="org.postgresql.Driver"
+                  url="jdbc:postgresql://ec2-52-30-159-47.eu-west-1.compute.amazonaws.com:5432/d2j5mchnh8vql4"/>
+
+</Context>
