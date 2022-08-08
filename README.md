@@ -5,7 +5,7 @@
 **Student DB Utility**
 + Responsible for interfacing with the database using JDBC code
 + This is a common design pattern: **Data Accessor Object (DAO**
-<img src="imgReadme/img_5.png" wdith=500 />
+<img src="imgReadme/img_5.png" width=500 />
 
 
 **Create a Database Application**   
