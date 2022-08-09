@@ -30,7 +30,7 @@ public class StudentDbUtil {
             myConn = dataSource.getConnection();
 
             // create sql statement
-            String sql = "SELECT * FROM student ODER BY last_name";
+            String sql = "SELECT * FROM student ORDER BY last_name";
 
             myStmt = myConn.createStatement();
 
