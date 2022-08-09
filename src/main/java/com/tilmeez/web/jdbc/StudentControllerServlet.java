@@ -6,6 +6,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "StudentControllerServlet", value = "/StudentControllerServlet")
@@ -48,9 +49,6 @@ public class StudentControllerServlet extends HttpServlet {
                     listStudents(request, response);
                     break;
 
-                case "ADD":
-                    addStudent(request, response);
-                    break;
                 case "LOAD":
                     loadStudent(request, response);
                     break;
@@ -60,6 +58,9 @@ public class StudentControllerServlet extends HttpServlet {
                 case "DELETE":
                     deleteStudent(request, response);
                     break;
+                case "SEARCH":
+                    searchStudent(request, response);
+                    break;
 
                 default:
                     listStudents(request, response);
@@ -67,6 +68,41 @@ public class StudentControllerServlet extends HttpServlet {
 
         } catch (Exception e) {
             throw new ServletException(e);
+        }
+    }
+
+    private void searchStudent(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        // read search name from data
+        String theSearchName = request.getParameter("theSearchName");
+
+        // search student from db util
+        List<Student> students = studentDbUtil.searchStudents(theSearchName);
+
+        // add students to the request
+        request.setAttribute("STUDENT_LIST", students);
+
+        // send to JSP page (view)
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/list-students.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try{
+            // read the "command" parameter
+            String theCommand = request.getParameter("command");
+
+            // route to the appropriate method
+            switch (theCommand) {
+                case "ADD":
+                    addStudent(request, response);
+                    break;
+                default:
+                    listStudents(request, response);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -131,7 +167,9 @@ public class StudentControllerServlet extends HttpServlet {
         studentDbUtil.addStudent(theStudent);
 
         // send back to main page (the Student list)
-        listStudents(request, response);
+        // SEND AS REDIRECT to avoid multiple-browser reload issue
+//        listStudents(request, response);
+        response.sendRedirect(request.getContextPath() + "/StudentControllerServlet?command=LIST");
     }
 
     private void listStudents(HttpServletRequest request, HttpServletResponse response) throws Exception{

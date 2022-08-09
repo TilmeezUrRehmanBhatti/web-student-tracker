@@ -101,6 +101,7 @@ _Sequence Diagram_
 
 
 **Update Student**
+
 <img src="imgReadme/img_8.png" width="700"/>
 
 _Action Link - Update_  
@@ -110,6 +111,7 @@ _Sequence Diagram_
 <img src="imgReadme/img_10.png" width="500"/>
 
 **Delete Student**
+
 <img src="imgReadme/img_11.png" width="700"/>
 
 _Action Link - Update_  
@@ -117,3 +119,15 @@ _Action Link - Update_
 
 _Sequence Diagram_  
 <img src="imgReadme/img_13.png" width="500"/>
+
+### Add Search features to the App
+
+Basically, we will allow the user to search for a customer by name. We'll add a search box at to the screen and the user can enter a name. On the backend, we'll compare this name to the customer's first name or last name.
+
+
+
+
+**Overview of Development Process**  
+1. Create the HTML form  
+2. Add routing logic in StudentControllerServlet  
+3. Add method in the StudentDbUtil to perfom search
