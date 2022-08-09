@@ -21,6 +21,12 @@
     <div id="container">
         <div id="content">
 
+            <!-- put new button: Add Student -->
+            <input type="button" value="Add Student"
+            onclick="window.location.href='add-student-form.jsp';return false"
+            class="add-student-button"/>
+
+
             <table>
 
                 <tr>
@@ -37,6 +43,11 @@
                 </c:forEach>
 
             </table>
+            <div style="clear: both"></div>
+
+            <p>
+                <a href="StudentControllerServlet">Back to Complete List</a>
+            </p>
         </div>
     </div>
 

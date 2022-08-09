@@ -90,3 +90,12 @@ For example: you have a large number of users, and they all want to make use of 
 
 - <http://stackoverflow.com/questions/1208077/optimal-number-of-connections-in-connection-pool>
 
+
+**Add Student**
+
+<img src="imgReadme/img_6.png" width="700">
+
+_Sequence Diagram_  
+![](imgReadme/img_7.png)
+
+

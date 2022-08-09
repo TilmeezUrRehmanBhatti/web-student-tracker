@@ -33,14 +33,52 @@ public class StudentControllerServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            // list the student ... in MVC fashion
-            listStudent(request, response);
+            // read the "command" parameter
+            String theCommand = request.getParameter("command");
+
+            // if the command is missing, then default to list students
+            if (theCommand == null) {
+                theCommand = "LIST";
+            }
+
+            // route to the appropriate method
+            switch (theCommand) {
+
+                case "LIST":
+                    listStudents(request, response);
+                    break;
+
+                case "ADD":
+                    addStudent(request, response);
+                    break;
+
+                default:
+                    listStudents(request, response);
+            }
+
         } catch (Exception e) {
             throw new ServletException(e);
         }
     }
 
-    private void listStudent(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    private void addStudent(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        // read student info from form data
+        String firstName = request.getParameter("firstName");
+        String lastName = request.getParameter("lastName");
+        String email = request.getParameter("email");
+
+        // create a new student object
+        Student theStudent = new Student(firstName, lastName, email);
+
+        // add the student to the database
+        studentDbUtil.addStudent(theStudent);
+
+        // send back to main page (the Student list)
+        listStudents(request, response);
+    }
+
+    private void listStudents(HttpServletRequest request, HttpServletResponse response) throws Exception{
 
         // get student from dbUtil
         List<Student> students = studentDbUtil.getStudent();
