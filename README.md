@@ -96,7 +96,7 @@ For example: you have a large number of users, and they all want to make use of 
 <img src="imgReadme/img_6.png" width="700"/>
 
 _Sequence Diagram_  
-<img src="imgReadme/img_7.png" width="700"/>
+<img src="imgReadme/img_7.png" width="500"/>
 
 
 
@@ -104,7 +104,16 @@ _Sequence Diagram_
 <img src="imgReadme/img_8.png" width="700"/>
 
 _Action Link - Update_  
-<img src="imgReadme/img_9.png" width="700"/>
+<img src="imgReadme/img_9.png" width="500"/>
 
 _Sequence Diagram_  
-<img src="imgReadme/img_10.png" width="700"/>
+<img src="imgReadme/img_10.png" width="500"/>
+
+**Delete Student**
+<img src="imgReadme/img_11.png" width="700"/>
+
+_Action Link - Update_  
+<img src="imgReadme/img_12.png" width="500"/>
+
+_Sequence Diagram_  
+<img src="imgReadme/img_13.png" width="500"/>
