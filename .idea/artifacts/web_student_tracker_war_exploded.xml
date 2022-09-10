@@ -14,6 +14,8 @@
           <element id="module-output" name="web-student-tracker" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-dbcp:10.1.0-M2" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:10.1.0-M2" />
           <element id="library" level="project" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:7.0.47" />
           <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.4.1" />
           <element id="library" level="project" name="Maven: org.checkerframework:checker-qual:3.5.0" />

@@ -25,6 +25,11 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-dbcp</artifactId>
+            <version>10.1.0-M2</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
             <version>7.0.47</version>
@@ -80,6 +85,12 @@
                 <version>3.0.3</version>
                 <configuration>
                     <appName>web-student--tracker</appName>
+                    <buildpacks>
+                        <buildpack>heroku/jvm</buildpack>
+                    </buildpacks>
+                    <processTypes>
+                        <web>java $JAVA_OPTS -cp 'target/dependency/*' webapp.runner.launch.Main target/*.war --enable-naming --port $PORT</web>
+                    </processTypes>
                 </configuration>
             </plugin>
             <plugin>

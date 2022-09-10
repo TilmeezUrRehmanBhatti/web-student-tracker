@@ -24,6 +24,7 @@ public class TestServlet extends HttpServlet {
         // Step 1: Set up the printwriter
         PrintWriter out = response.getWriter();
         response.setContentType("text/plan");
+        out.println("Email: ");
 
         // Step 2 : Get a connection to a database
         Connection myConn;
@@ -43,10 +44,12 @@ public class TestServlet extends HttpServlet {
             // Step 5: Process the result set
             while (myRs.next()) {
                 String email = myRs.getString("email");
+                out.println("Email: ");
                 out.println(email);
             }
         } catch (Exception e) {
             e.printStackTrace();
+            out.println(e);
         }
 
 
